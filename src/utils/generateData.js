@@ -1,4 +1,4 @@
-require('dotenv').config(); // Load environment variables
+require('dotenv').config();
 const mongoose = require('mongoose');
 const Uptime = require('../models/Uptime');
 const Analytics = require('../models/Analytics');
@@ -11,7 +11,6 @@ const generateData = async () => {
         twoMonthsAgo.setMonth(currentTime.getMonth() - 2);
 
         console.log('Generating uptime data...');
-        // Generate uptime data
         for (let d = twoMonthsAgo; d <= currentTime; d.setMinutes(d.getMinutes() + 5)) {
             const status = Math.random() > 0.1 ? 'up' : 'down';
             await Uptime.create({
@@ -23,7 +22,6 @@ const generateData = async () => {
         }
 
         console.log('Generating analytical data...');
-        // Generate analytical data
         for (let d = twoMonthsAgo; d <= currentTime; d.setMinutes(d.getMinutes() + 5)) {
             const value = Math.floor(Math.random() * 100);
             await Analytics.create({

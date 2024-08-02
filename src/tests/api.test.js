@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 
 describe('API Tests', () => {
     beforeAll(async () => {
-        // Connect to the test database
         await mongoose.connect(process.env.MONGO_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
@@ -12,7 +11,6 @@ describe('API Tests', () => {
     });
 
     afterAll(async () => {
-        // Close the database connection
         await mongoose.connection.close();
     });
 
@@ -26,5 +24,4 @@ describe('API Tests', () => {
         expect(response.body).toBeDefined();
     });
 
-    // Additional test cases for other endpoints
 });
