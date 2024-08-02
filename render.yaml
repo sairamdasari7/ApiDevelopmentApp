@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: uptime-analytics-api
+    runtime: node
+    buildCommand: 'npm install'
+    startCommand: 'npm start'
+    envVars:
+      - key: MONGO_URI
+        value: mongodb://localhost:27017/API Development App Data/uptimeAnalytics/uptimes
+      - key: JWT_SECRET
+        value: gG0kLfsdJlNNGKj3ogZveEzruLBjRt2Fij7yx9d+/L4=
